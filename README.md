@@ -22,14 +22,13 @@ Terraform should report "Terraform has been successfully initialized!" following
 ### Configure Variables
 
 * Copy over terraform.vars to terraform.tfvars. 
-* Log into intersight.com and get the API keys and SecretKey. 
-* Include this in the terraform.tfvars file.
+* Log into intersight.com and get the API keys and SecretKey. Include this in the terraform.tfvars file.
 * Generate ssh keys and include the public key in the vars file as well
 
 ### Plan and Apply
 
-terraform plan
-terraform apply
+* terraform plan
+* terraform apply
 
 ### Post provisioning steps
 
