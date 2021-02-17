@@ -5,7 +5,7 @@ Intersight IKS provisioning using Terraform Provider
 Create an IKS 3-node cluster on vSphere Infrastructure registered with Intersight. 
 
 ### Pre-requisites
-Please sign up for an account on intersight with access to vSphere infrastructure
+Please sign up for an account on intersight.com with access to vSphere infrastructure
 
 ### Clone this repository and initialize the provider
 
@@ -33,4 +33,6 @@ Terraform should report "Terraform has been successfully initialized!" following
 ### Post provisioning steps
 
 Check for successful deployment of cluster in Intersight portal and download kubeconfig for cluster just created.
+Check for the cluster node list:
+* kubectl --kubeconfig <kubeconfig>.yml get nodes
 
