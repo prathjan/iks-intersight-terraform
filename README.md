@@ -1,4 +1,5 @@
 # iks-intersight-terraform
+# Parts of this README has been taken from https://github.com/CiscoDevNet/intersight-terraform-modules, Credit: David Soper
 Intersight IKS provisioning using Terraform Provider
 
 ## Use Case Statement
@@ -25,8 +26,12 @@ Terraform should report "Terraform has been successfully initialized!" following
 * Log into intersight.com and get the API keys and SecretKey. Include this in the terraform.tfvars file.
 * Generate ssh keys and include the public key in the vars file as well
 
-### Plan and Apply
+### IKS Configuration
+The main configuration file is cprofile.tf which configures a profile for the k8s cluster, create the master and worker node profile and references the cluster profile and finally deploys the cluster
 
+### Validate, Plan and Apply
+
+* terraform validate 
 * terraform plan
 * terraform apply
 
