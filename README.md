@@ -1,5 +1,5 @@
 # iks-intersight-terraform
-# Parts of this README has been taken from https://github.com/CiscoDevNet/intersight-terraform-modules, Credit: David Soper
+Parts of this README has been taken from https://github.com/CiscoDevNet/intersight-terraform-modules, Credit: David Soper
 Intersight IKS provisioning using Terraform Provider
 
 ## Use Case Statement
