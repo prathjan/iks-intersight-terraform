@@ -1,4 +1,4 @@
-# iks-intersight-terraform
+# Configuring IKS cluster wih Intersight on vSphere Infrastructure 
 Parts of this README has been taken from https://github.com/CiscoDevNet/intersight-terraform-modules, Credit: David Soper
 Intersight IKS provisioning using Terraform Provider
 
