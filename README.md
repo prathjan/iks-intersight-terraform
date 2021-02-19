@@ -3,7 +3,7 @@ Parts of this README has been taken from https://github.com/CiscoDevNet/intersig
 Intersight IKS provisioning using Terraform Provider
 
 ## Use Case Statement
-Create an IKS 3-node cluster on vSphere Infrastructure registered with Intersight. 
+Create an IKS 3-node cluster using Terraform Intersight Provider on vSphere Infrastructure registered with Intersight. 
 
 ### Pre-requisites
 Please sign up for an account on intersight.com with access to vSphere infrastructure
