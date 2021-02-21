@@ -32,7 +32,7 @@ The main configuration file is cprofile.tf which configures a profile for the k8
 ### Validate, Plan and Apply
 
 * terraform validate 
-* terraform plan
+* terraform plan -out example.tfplan. Review the plan to check out the resources to  be provisioned. You should see resources to provision the cluster profile, master/worker node profiles and deploy action for the cluster.
 * terraform apply
 
 ### Post provisioning steps
