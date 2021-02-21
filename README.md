@@ -1,5 +1,4 @@
 # Configuring IKS cluster wih Intersight on vSphere Infrastructure 
-Parts of this README has been taken from https://github.com/CiscoDevNet/intersight-terraform-modules, Credit: David Soper
 
 ## Use Case Statement
 Create an IKS 3-node cluster using Terraform Intersight Provider on vSphere Infrastructure registered with Intersight. 
@@ -42,3 +41,5 @@ Check for successful deployment of cluster in Intersight portal and download kub
 Check for the cluster node list:
 * kubectl --kubeconfig <kubeconfig>.yml get nodes
 
+### Credits
+Parts of this README has been taken from https://github.com/CiscoDevNet/intersight-terraform-modules, Credit: David Soper
