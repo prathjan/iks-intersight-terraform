@@ -1,5 +1,7 @@
 # API key info
-variable "api_private_key" {}
+variable "api_private_key" {
+  type = string 
+}
 
 variable "api_key_id" {}
 
