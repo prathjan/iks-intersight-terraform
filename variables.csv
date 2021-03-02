@@ -1,2 +1,23 @@
-api_key_id,fillmein,env,false,false
+api_key_id,"5fdcc5627564612d33b78e10/6021b2b47564612d33df625a/6025d3c37564612d330677ec",env,false,true
+api_private_key,"/Users/prathjan/Downloads/SecretKey.txt",env,false,true
+endpoint,"https://intersight.com",env,false,false
+mgmtcfgsshkeys,"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJkPIkcSWkLxdEeMCTr3eMB7L20GEQpIfKDlvoPHGe6f prathjan@PRATHJAN-M-T39V",env,false,true
+name,"testingiks",env,false,false
+
+
+ippool_list,"Galaxy1050b",env,false,false
+netcfg_list,"gffa-cluster-1-network-policy",env,false,false
+syscfg_list,"gffa-cluster-1-sys-config-policy",env,false,false
+infra_list,"GFFA-VCenter",env,false,false
+ippoolmaster_list,"Galaxy1050b",env,false,false
+ippoolworker_list,"Galaxy1050b",env,false,false
+kubever_list,"Kubernetes-1.18",env,false,false
+orgobjtype,"organization.Organization",env,false,false
+mgmtcfgetcd,false,env,false,false
+mgmtcfglbcnt,1,env,false,false
+mgmtcfgsshuser,"iksadmin",env,false,false
+mastergrpname,"testing-master-pool",env,false,false
+masterdesiredsize,1,env,false,false
+workergrpname,"testing-worker-pool",env,false,false
+workerdesiredsize,2,env,false,false
 
