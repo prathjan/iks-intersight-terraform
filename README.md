@@ -1,4 +1,4 @@
-# Configuring IKS cluster wih Intersight on vSphere Infrastructure 
+# Configuring IKS cluster with Intersight on vSphere Infrastructure 
 
 ## Use Case Statement
 Create an IKS 3-node cluster using Terraform Intersight Provider on vSphere Infrastructure registered with Intersight. 
