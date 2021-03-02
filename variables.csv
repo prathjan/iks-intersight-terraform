@@ -1,5 +1,6 @@
 endpoint,https://intersight.com,env,false,false
-name,testingiks,env,false,false
+api_key_id,,env,false,false
+name,testingiks2,env,false,false
 ippool_list,Galaxy1050b,env,false,false
 netcfg_list,gffa-cluster-1-network-policy,env,false,false
 syscfg_list,gffa-cluster-1-sys-config-policy,env,false,false
@@ -15,4 +16,3 @@ mastergrpname,testing-master-pool,env,false,false
 masterdesiredsize,1,env,false,false
 workergrpname,testing-worker-pool,env,false,false
 workerdesiredsize,2,env,false,false
-
