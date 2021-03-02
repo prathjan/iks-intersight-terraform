@@ -1,7 +1,4 @@
-api_key_id,"5fdcc5627564612d33b78e10/6021b2b47564612d33df625a/6025d3c37564612d330677ec",env,false,true
-api_private_key,"/Users/prathjan/Downloads/SecretKey.txt",env,false,true
 endpoint,"https://intersight.com",env,false,false
-mgmtcfgsshkeys,"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJkPIkcSWkLxdEeMCTr3eMB7L20GEQpIfKDlvoPHGe6f prathjan@PRATHJAN-M-T39V",env,false,true
 name,"testingiks",env,false,false
 
 
