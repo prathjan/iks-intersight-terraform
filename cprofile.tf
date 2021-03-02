@@ -1,4 +1,12 @@
 # Intersight Provider Information 
+variable "api_private_key" {
+  type = string
+}
+
+variable "api_key_id" {
+  type = string
+}
+
 terraform {
   required_providers {
     intersight = {
