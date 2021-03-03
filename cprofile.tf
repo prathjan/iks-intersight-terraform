@@ -1,10 +1,4 @@
 # Intersight Provider Information 
-variable "api_private_key" {
-}
-
-variable "api_key_id" {
-}
-
 terraform {
   required_providers {
     intersight = {
@@ -20,11 +14,19 @@ provider "intersight" {
   endpoint      = var.api_endpoint
 }
 
-# Organization and other required Managed Object IDs (moids)
-module "intersight-moids" {
-  source            = "../intersight-moids"
-  organization_name = var.organization_name
+data "intersight_organization_organization" "organization_moid" {
+  name = var.organization_name
 }
+
+output "organization_moid" {
+  value = data.intersight_organization_organization.organization_moid.moid
+}
+
+# Organization and other required Managed Object IDs (moids)
+#module "intersight-moids" {
+#  source            = "../intersight-moids"
+#  organization_name = var.organization_name
+#}
 
 # IPPool moids
 data "intersight_ippool_pool" "ippool_moid" {
@@ -50,7 +52,7 @@ resource "intersight_kubernetes_cluster_profile" "kubeprof" {
   name = var.name 
   organization {
     object_type = "organization.Organization"
-    moid        = module.intersight-moids.organization_moid
+    moid        = data.intersight_organization_organization.organization_moid.moid
   }
   cluster_ip_pools {
 	object_type = "ippool.Pool" 
@@ -170,7 +172,7 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
   name = intersight_kubernetes_cluster_profile.kubeprof.name
   organization {
     object_type = "organization.Organization"
-    moid        = module.intersight-moids.organization_moid
+    moid        = data.intersight_organization_organization.organization_moid.moid 
   }
 
 }
