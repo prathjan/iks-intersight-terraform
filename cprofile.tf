@@ -22,11 +22,6 @@ output "organization_moid" {
   value = data.intersight_organization_organization.organization_moid.moid
 }
 
-# Organization and other required Managed Object IDs (moids)
-#module "intersight-moids" {
-#  source            = "../intersight-moids"
-#  organization_name = var.organization_name
-#}
 
 # IPPool moids
 data "intersight_ippool_pool" "ippool_moid" {
@@ -36,13 +31,11 @@ data "intersight_ippool_pool" "ippool_moid" {
 # Netcfg moids
 data "intersight_kubernetes_network_policy" "netcfg_moid" {
   name  = var.netcfg_list
-#  moid = ""
 }
 
 # Sysconfig moids
 data "intersight_kubernetes_sys_config_policy" "syscfg_moid" {
   name  = var.syscfg_list
-#  moid = ""
 }
 
 
@@ -82,25 +75,21 @@ resource "intersight_kubernetes_cluster_profile" "kubeprof" {
 # Infra provider moids
 data "intersight_kubernetes_virtual_machine_infrastructure_provider" "infra_moid" {
   name  = var.infra_list
-  moid = ""
 }
 
 # IpPool moids
 data "intersight_ippool_pool" "ippoolmaster_moid" {
   name  = var.ippoolmaster_list
-  moid = ""
 }
 
 # IpPool moids
 data "intersight_ippool_pool" "ippoolworker_moid" {
   name  = var.ippoolworker_list
-  moid = ""
 }
 
 # Kube version moids
 data "intersight_kubernetes_version_policy" "kubever_moid" {
   name  = var.kubever_list
-  moid = ""
 }
 
 
