@@ -14,14 +14,6 @@ provider "intersight" {
   endpoint      = var.api_endpoint
 }
 
-resource "null_resource" "nothing2SeeHere" {
- }
-
-
-
-
-
-/*
 data "intersight_organization_organization" "organization_moid" {
   name = var.organization_name
 }
@@ -183,6 +175,5 @@ output "kube_config" {
         #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
 }
 
-*/
 
 
