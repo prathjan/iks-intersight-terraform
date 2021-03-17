@@ -14,6 +14,14 @@ provider "intersight" {
   endpoint      = var.api_endpoint
 }
 
+resource "null_resource" "nothing2SeeHere" {
+ }
+
+
+
+
+
+/*
 data "intersight_organization_organization" "organization_moid" {
   name = var.organization_name
 }
@@ -38,9 +46,10 @@ data "intersight_kubernetes_sys_config_policy" "syscfg_moid" {
   name  = var.syscfg_list
 }
 
-
+*/
 
 # kube cluster profiles
+/*
 resource "intersight_kubernetes_cluster_profile" "kubeprof" {
   name = var.name 
   organization {
@@ -176,6 +185,6 @@ output "kube_config" {
         #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
 }
 
-
+*/
 
 
