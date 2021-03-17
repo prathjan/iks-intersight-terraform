@@ -167,10 +167,7 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
 }
 
 data "intersight_kubernetes_cluster" "ikscluster" {
-  depends_on = [
-        intersight_kubernetes_cluster_profile.kubeprofaction 
-  ]
-  name  = intersight_kubernetes_cluster_profile.kubeprof.name 
+  name  = intersight_kubernetes_cluster_profile.kubeprofaction.name 
   moid = ""
 }
 
