@@ -172,10 +172,7 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
 #}
 
 output "kube_config" {
-  depends_on = [
-        intersight_kubernetes_cluster_profile.kubeprofaction 
-  ]
-        value = intersight_kubernetes_cluster_profile.kubeprofaction.name
+        value = intersight_kubernetes_cluster_profile.kubeprofaction.kube_config
         #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
 }
 
