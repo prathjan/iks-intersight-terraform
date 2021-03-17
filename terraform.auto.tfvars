@@ -3,7 +3,7 @@
 # Can be copied to terraform.tfvars and edited so that Terraform will automatically use variables from this file.
 #
 endpoint = "https://intersight.com"
-name = "tfcloud2"
+name = "tfcloud3"
 
 
 # profile params
@@ -22,9 +22,9 @@ orgobjtype = "organization.Organization"
 mgmtcfgetcd = false
 mgmtcfglbcnt = 1
 mgmtcfgsshuser = "iksadmin"
-mastergrpname = "tfcloud2-master-pool"
+mastergrpname = "tfcloud3-master-pool"
 masterdesiredsize = 1
-workergrpname = "tfcloud2-worker-pool"
+workergrpname = "tfcloud3-worker-pool"
 workerdesiredsize = 2
 
 
