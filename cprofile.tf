@@ -170,10 +170,10 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
 #  moid = ""
 #}
 
-output "kube_config" {
-        value = intersight_kubernetes_cluster_profile.kubeprofaction.kube_config
-        #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
-}
+#output "kube_config" {
+#        value = intersight_kubernetes_cluster_profile.kubeprofaction.kube_config
+#        #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
+#}
 
 
 
