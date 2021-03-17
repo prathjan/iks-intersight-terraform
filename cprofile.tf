@@ -166,3 +166,16 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
 
 }
 
+data "intersight_kubernetes_cluster" "ikscluster" {
+  name  = intersight_kubernetes_cluster_profile.kubeprof.name 
+  moid = ""
+}
+
+output "kube_config" {
+        value = data.intersight_kubernetes_cluster.ikscluster.kube_config 
+        #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
+}
+
+
+
+
