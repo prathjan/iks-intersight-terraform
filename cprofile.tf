@@ -166,16 +166,16 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
 
 }
 
-data "intersight_kubernetes_cluster" "ikscluster" {
-  name  = intersight_kubernetes_cluster_profile.kubeprofaction.name 
-  moid = ""
-}
+#data "intersight_kubernetes_cluster" "ikscluster" {
+#  name  = intersight_kubernetes_cluster_profile.kubeprofaction.name 
+#  moid = ""
+#}
 
 output "kube_config" {
   depends_on = [
         intersight_kubernetes_cluster_profile.kubeprofaction 
   ]
-        value = data.intersight_kubernetes_cluster.ikscluster.kube_config 
+        value = intersight_kubernetes_cluster_profile.kubeprofaction.name
         #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
 }
 
