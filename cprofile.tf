@@ -46,10 +46,8 @@ data "intersight_kubernetes_sys_config_policy" "syscfg_moid" {
   name  = var.syscfg_list
 }
 
-*/
 
 # kube cluster profiles
-/*
 resource "intersight_kubernetes_cluster_profile" "kubeprof" {
   name = var.name 
   organization {
