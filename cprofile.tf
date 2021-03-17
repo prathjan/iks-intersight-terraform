@@ -166,21 +166,21 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
 
 }
 
-#data "intersight_kubernetes_cluster" "ikscluster" {
-#  depends_on = [
-#        intersight_kubernetes_cluster_profile.kubeprofaction 
-#  ]
-#  name  = intersight_kubernetes_cluster_profile.kubeprof.name 
-#  moid = ""
-#}
+data "intersight_kubernetes_cluster" "ikscluster" {
+  depends_on = [
+        intersight_kubernetes_cluster_profile.kubeprofaction 
+  ]
+  name  = intersight_kubernetes_cluster_profile.kubeprof.name 
+  moid = ""
+}
 
-#output "kube_config" {
-#  depends_on = [
-#        intersight_kubernetes_cluster_profile.kubeprofaction 
-#  ]
-#        value = data.intersight_kubernetes_cluster.ikscluster.kube_config 
-#        #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
-#}
+output "kube_config" {
+  depends_on = [
+        intersight_kubernetes_cluster_profile.kubeprofaction 
+  ]
+        value = data.intersight_kubernetes_cluster.ikscluster.kube_config 
+        #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
+}
 
 
 
