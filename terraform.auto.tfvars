@@ -8,23 +8,23 @@ name = "tfcloud3"
 
 # profile params
 # IP Pool name and moid 
-ippool_list = "Galaxy1050b"
+ippool_list = "GFFA-HX2-1051"
 
 # Netcfg name
 netcfg_list = "gffa-cluster-1-network-policy"
 # Syscfg name
 syscfg_list = "gffa-cluster-1-sys-config-policy"
-infra_list = "GFFA-VCenter"
-ippoolmaster_list = "Galaxy1050b"
-ippoolworker_list = "Galaxy1050b"
+infra_list = "GFFA_HX2-1051"
+ippoolmaster_list = "GFFA-HX2-1051"
+ippoolworker_list = "GFFA-HX2-1051"
 kubever_list = "Kubernetes-1.18"
 orgobjtype = "organization.Organization"
 mgmtcfgetcd = false
 mgmtcfglbcnt = 1
 mgmtcfgsshuser = "iksadmin"
-mastergrpname = "tfcloud3-master-pool"
+mastergrpname = "tfcloud3-master-pool1"
 masterdesiredsize = 1
-workergrpname = "tfcloud3-worker-pool"
+workergrpname = "tfcloud3-worker-pool1"
 workerdesiredsize = 2
 
 
