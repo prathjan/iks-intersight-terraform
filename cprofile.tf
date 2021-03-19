@@ -3,7 +3,7 @@ terraform {
   required_providers {
     intersight = {
       source = "CiscoDevNet/intersight"
-      version = "1.0.0"
+      version = "1.0.3"
     }
   }
 }
@@ -19,7 +19,7 @@ data "intersight_organization_organization" "organization_moid" {
 }
 
 output "organization_moid" {
-  value = data.intersight_organization_organization.organization_moid.moid
+  value = data.intersight_organization_organization.organization_moid.results.0.moid
 }
 
 
@@ -42,13 +42,15 @@ data "intersight_kubernetes_sys_config_policy" "syscfg_moid" {
 # kube cluster profiles
 resource "intersight_kubernetes_cluster_profile" "kubeprof" {
   name = var.name 
+  #action = "Deploy"
+  wait_for_completion=false
   organization {
     object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.organization_moid.moid
+    moid        = data.intersight_organization_organization.organization_moid.results.0.moid
   }
   cluster_ip_pools {
 	object_type = "ippool.Pool" 
-	moid = data.intersight_ippool_pool.ippool_moid.moid
+	moid = data.intersight_ippool_pool.ippool_moid.results.0.moid
   }
   management_config {
 	encrypted_etcd = var.mgmtcfgetcd
@@ -60,12 +62,12 @@ resource "intersight_kubernetes_cluster_profile" "kubeprof" {
 	object_type = "kubernetes.ClusterManagementConfig" 
   }
   net_config {
-	moid = data.intersight_kubernetes_network_policy.netcfg_moid.moid
+	moid = data.intersight_kubernetes_network_policy.netcfg_moid.results.0.moid
 	object_type = "kubernetes.NetworkPolicy" 
   }
 
   sys_config {
-	moid = data.intersight_kubernetes_sys_config_policy.syscfg_moid.moid
+	moid = data.intersight_kubernetes_sys_config_policy.syscfg_moid.results.0.moid
 	object_type = "kubernetes.SysConfigPolicy" 
   }
 }
@@ -100,7 +102,7 @@ resource "intersight_kubernetes_node_group_profile" "masternodegrp" {
 
   ip_pools {
         object_type = "ippool.Pool" 
-        moid = data.intersight_ippool_pool.ippoolmaster_moid.moid
+        moid = data.intersight_ippool_pool.ippoolmaster_moid.results.0.moid
   }
 
 
@@ -111,13 +113,13 @@ resource "intersight_kubernetes_node_group_profile" "masternodegrp" {
 
   infra_provider {
         object_type = "kubernetes.VirtualMachineInfrastructureProvider" 
-        moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.infra_moid.moid
+        moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.infra_moid.results.0.moid
   }
 
 
   kubernetes_version {
         object_type = "kubernetes.VersionPolicy" 
-        moid = data.intersight_kubernetes_version_policy.kubever_moid.moid
+        moid = data.intersight_kubernetes_version_policy.kubever_moid.results.0.moid
   }
 
 }
@@ -130,7 +132,7 @@ resource "intersight_kubernetes_node_group_profile" "workernodegrp" {
 
   ip_pools {
         object_type = "ippool.Pool"
-        moid = data.intersight_ippool_pool.ippoolmaster_moid.moid
+        moid = data.intersight_ippool_pool.ippoolmaster_moid.results.0.moid
   }
 
 
@@ -141,16 +143,15 @@ resource "intersight_kubernetes_node_group_profile" "workernodegrp" {
 
   infra_provider {
         object_type = "kubernetes.VirtualMachineInfrastructureProvider"
-        moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.infra_moid.moid
+        moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.infra_moid.results.0.moid
   }
 
 
   kubernetes_version {
         object_type = "kubernetes.VersionPolicy"
-        moid = data.intersight_kubernetes_version_policy.kubever_moid.moid
+        moid = data.intersight_kubernetes_version_policy.kubever_moid.results.0.moid
   }
 }
-
 
 resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
   depends_on = [
@@ -160,20 +161,20 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
   name = intersight_kubernetes_cluster_profile.kubeprof.name
   organization {
     object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.organization_moid.moid 
+    moid        = data.intersight_organization_organization.organization_moid.results.0.moid 
   }
 
 }
 
 #data "intersight_kubernetes_cluster" "ikscluster" {
-#  name  = intersight_kubernetes_cluster_profile.kubeprofaction.name 
-#  moid = ""
+#  name  = intersight_kubernetes_cluster_profile.kubeprof.name 
 #}
 
 #output "kube_config" {
-#        value = intersight_kubernetes_cluster_profile.kubeprofaction.kube_config
-#        #value = yamldecode(base64decode(data.intersight_kubernetes_cluster.ikscluster.results[0].kube_config)) 
+#        value = data.intersight_kubernetes_cluster.ikscluster.results.0.kube_config
 #}
 
-
-
+output "kube_config" {
+	value = intersight_kubernetes_cluster_profile.kubeprof.kube_config[0].kube_config
+	#value = intersight_kubernetes_cluster_profile.kubeprof.results.0.kube_config
+}
