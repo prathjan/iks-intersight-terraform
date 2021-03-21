@@ -3,8 +3,6 @@
 # Can be copied to terraform.tfvars and edited so that Terraform will automatically use variables from this file.
 #
 name = "tfsandbox"
-
-
 # profile params
 # IP Pool name and moid 
 ippool_list = "Galaxy1050b"

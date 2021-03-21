@@ -42,7 +42,6 @@ data "intersight_kubernetes_sys_config_policy" "syscfg_moid" {
 # kube cluster profiles
 resource "intersight_kubernetes_cluster_profile" "kubeprof" {
   name = var.name 
-  #action = "Deploy"
   wait_for_completion=false
   organization {
     object_type = "organization.Organization"
@@ -166,15 +165,7 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
 
 }
 
-#data "intersight_kubernetes_cluster" "ikscluster" {
-#  name  = intersight_kubernetes_cluster_profile.kubeprof.name 
-#}
-
-#output "kube_config" {
-#        value = data.intersight_kubernetes_cluster.ikscluster.results.0.kube_config
-#}
-
+#Wait for cluster to come up and then outpt the kubeconfig, if successful
 output "kube_config" {
 	value = intersight_kubernetes_cluster_profile.kubeprof.kube_config[0].kube_config
-	#value = intersight_kubernetes_cluster_profile.kubeprof.results.0.kube_config
 }
