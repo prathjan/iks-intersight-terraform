@@ -2,7 +2,7 @@
 # Example .tfvars file
 # Can be copied to terraform.tfvars and edited so that Terraform will automatically use variables from this file.
 #
-name = "tfsandbox2"
+name = "tfsandbox"
 # profile params
 # IP Pool name and moid 
 ippool_list = "Galaxy1050b"
@@ -19,9 +19,9 @@ orgobjtype = "organization.Organization"
 mgmtcfgetcd = false
 mgmtcfglbcnt = 3
 mgmtcfgsshuser = "iksadmin"
-mastergrpname = "tfsb2-master-pool1"
+mastergrpname = "tfsb-master-pool1"
 masterdesiredsize = 1
-workergrpname = "tfsb2-worker-pool1"
+workergrpname = "tfsb-worker-pool1"
 workerdesiredsize = 2
 
 
