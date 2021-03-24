@@ -22,7 +22,7 @@ mgmtcfgsshuser = "iksadmin"
 mastergrpname = "tfsb-master-pool1"
 masterdesiredsize = 1
 workergrpname = "tfsb-worker-pool1"
-workerdesiredsize = 2
+workerdesiredsize = 1
 
 
 
