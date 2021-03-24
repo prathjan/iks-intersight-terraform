@@ -124,33 +124,33 @@ resource "intersight_kubernetes_node_group_profile" "masternodegrp" {
 }
 
 #workers
-resource "intersight_kubernetes_node_group_profile" "workernodegrp" {
-  name = var.workergrpname
-  node_type = "Worker"
-  desiredsize = var.workerdesiredsize
-
-  ip_pools {
-        object_type = "ippool.Pool"
-        moid = data.intersight_ippool_pool.ippoolmaster_moid.results.0.moid
-  }
-
-
-  cluster_profile {
-        object_type = "kubernetes.ClusterProfile"
-        moid = intersight_kubernetes_cluster_profile.kubeprof.moid
-  }
-
-  infra_provider {
-        object_type = "kubernetes.VirtualMachineInfrastructureProvider"
-        moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.infra_moid.results.0.moid
-  }
-
-
-  kubernetes_version {
-        object_type = "kubernetes.VersionPolicy"
-        moid = data.intersight_kubernetes_version_policy.kubever_moid.results.0.moid
-  }
-}
+#resource "intersight_kubernetes_node_group_profile" "workernodegrp" {
+#  name = var.workergrpname
+#  node_type = "Worker"
+#  desiredsize = var.workerdesiredsize
+#
+#  ip_pools {
+#        object_type = "ippool.Pool"
+#        moid = data.intersight_ippool_pool.ippoolmaster_moid.results.0.moid
+#  }
+#
+#
+#  cluster_profile {
+#        object_type = "kubernetes.ClusterProfile"
+#        moid = intersight_kubernetes_cluster_profile.kubeprof.moid
+#  }
+#
+#  infra_provider {
+#        object_type = "kubernetes.VirtualMachineInfrastructureProvider"
+#        moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.infra_moid.results.0.moid
+#  }
+#
+#
+#  kubernetes_version {
+#        object_type = "kubernetes.VersionPolicy"
+#        moid = data.intersight_kubernetes_version_policy.kubever_moid.results.0.moid
+#  }
+#}
 
 resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
   depends_on = [
@@ -167,5 +167,5 @@ resource "intersight_kubernetes_cluster_profile" "kubeprofaction" {
 
 #Wait for cluster to come up and then outpt the kubeconfig, if successful
 output "kube_config" {
-	value = intersight_kubernetes_cluster_profile.kubeprof.kube_config[0].kube_config
+	value = intersight_kubernetes_cluster_profile.kubeprofaction.kube_config[0].kube_config
 }
